@@ -1,0 +1,46 @@
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    align-content: flex-end;
+}
+.navbar-text{
+    align-self: center;
+    font-family: "fantasy";
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 3.5px;
+    text-shadow: 2px, 2px, 2px, black;
+    color: white;
+}
+.btn{
+    background-color: black;
+    align-self: center;
+}
+body{
+    background-image: url("background.jpg");
+}
+
+.shopping-list-container{
+    display: flex;
+    flex-flow: column wrap;
+    width: 500px;
+    height: 650px;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 3px;
+    justify-content: flex-start;
+    overflow: hidden;
+    align-content: center;
+    background-color: white;
+    position: absolute;
+    left: 400px;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+}
+#shopping-list-header{
+    align-self: center;
+}
+.collection{
+    width:400px;
+}
