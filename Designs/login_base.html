@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/static/login-header.css"/>
+        <title>{% block title%}{% endblock%}</title>
+    </head>
+    <body>
+        <div id="login-content">{% block content %}{% endblock %}</div>
+    </body>
+</html>
