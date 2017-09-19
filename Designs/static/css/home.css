@@ -41,6 +41,10 @@ body{
 #shopping-list-header{
     align-self: center;
 }
-.collection{
-    width:400px;
+.collapsible{
+    width:450px;
+}
+.collapsible-header{
+    display: flex;
+    justify-content: space-around;
 }
