@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/steveMuema/shop4this/badge.svg?branch=master)](https://coveralls.io/github/steveMuema/shop4this?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/steveMuema/shop4this/badge.svg?branch=ch-test-coverage-reporting-%23151258154)](https://coveralls.io/github/steveMuema/shop4this?branch=ch-test-coverage-reporting-%23151258154)
 [![Build Status](https://travis-ci.org/steveMuema/shop4this.svg?branch=ch-test-coverage-reporting-%23151258154)](https://travis-ci.org/steveMuema/shop4this)
 
 
