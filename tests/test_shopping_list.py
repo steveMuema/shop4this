@@ -16,7 +16,8 @@ class TddForShoppingList(unittest.TestCase):
         all_lists = Shopping_list.saved_lists 
         self.assertEqual(all_lists, view_lists)
 
-    # def test_remove_list(self, list_id):
-    #     select_list = Shopping_list("My Shopping list", '213123')
-    #     save_dict = select_list.shopping_list_store()
-    #     save_selected = 
+    def test_remove_list(self):
+        """ tests for removal of a shopping list """
+        select_list = self.shopping_list.create_shopping_list() 
+        remove_selected = self.shopping_list.remove_list(select_list['list_id'])
+        self.assertEqual(True, remove_selected)

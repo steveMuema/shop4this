@@ -7,14 +7,14 @@ class Shopping_list(object):
         self.list_name = list_name
 
     def shopping_list_store(self):
+        """ Stores list in a dictionary and returns result """
         new_shopping_list = {'list_id' : self.list_id,
                              'list_name': self.list_name}
         return new_shopping_list
 
     def create_shopping_list(self):
         """ Takes values stored as dictionary and appends to saved_lists """
-        add_shopping_list = {'list_id' : self.list_id,
-                             'list_name': self.list_name}
+        add_shopping_list = self.shopping_list_store()
         self.saved_lists.append(add_shopping_list)
         return add_shopping_list
 
@@ -25,7 +25,8 @@ class Shopping_list(object):
     def remove_list(self, list_id):
         """ method to remove specific shopping list"""
         selected_list = [shop_list for shop_list in self.saved_lists if list_id == shop_list['list_id']]
-        Shopping_list.saved_lists.remove(selected_list[1])
+        # print(selected_list)
+        Shopping_list.saved_lists.remove(selected_list[0])
         return True
 
     def update_list(self, list_name, list_id):
@@ -33,4 +34,4 @@ class Shopping_list(object):
         self.list_name = list_name
         self.list_id = list_id
         return self
-    
+
