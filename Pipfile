@@ -6,5 +6,8 @@ verify_ssl = true
 requests = "*"
 gunicorn = "*"
 flask = "*"
+flask-login = "*"
+wtforms = "*"
+passlib = "*"
 
 
