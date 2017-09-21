@@ -3,7 +3,7 @@
     display: flex;
     flex-flow: column wrap;
     width: 500px;
-    height: 650px;
+    height: 740px;
     border-style: solid;
     border-radius: 20px;
     border-width: 2px;
@@ -18,9 +18,13 @@
 }
 
 .signup-heading{
-    margin-bottom: 70px;
+    /* margin-bottom: 70px; */
 }
 
 .form-control-label{
     margin-bottom: 5px;
+}
+
+.alert-danger{
+    width: 450px;
 }

@@ -1,9 +1,9 @@
 from uuid import uuid4
 class User(object):
     user_list=[]
-    def __init__(self, username, email, password, confirm_password, user_id=None):
+    def __init__(self, email, password, confirm_password, username, user_id=None):
         self.user_id = str(uuid4()) if user_id is None else user_id 
-        self.username = username
+        self.username = username 
         self.email = email
         self.password = password
         self.confirm_password = confirm_password
@@ -34,18 +34,19 @@ class User(object):
         """ validates whether there is an existing email before creating a new account """
         all_mails = [exists['email'] for exists in User.user_list if self.email == exists['email']]
         if self.email in all_mails:
-            return "Account exists. Sign in to the account"+', '+ self.email            
+            return "Account exists. Sign in to the account"+', '+ str(self.email)            
         else:
             return False
-
-    def signin(self, email, password):
-        auth_email = [account_email['email'] for account_email in User.user_list if self.email is account_email['email']]
+    
+    @staticmethod
+    def signin(email, password):
+        auth_email = [account_email['email'] for account_email in User.user_list if email is account_email['email']]
        
-        auth_pswd = [ account_pswd['password'] for account_pswd in User.user_list if self.password is account_pswd['password'] ]
+        auth_pswd = [ account_pswd['password'] for account_pswd in User.user_list if password is account_pswd['password'] ]
         auth_account=(auth_email, auth_pswd)
         auth_input = ([email], [password])
         if auth_account != auth_input:
-            return "Log in unsuccessful, please retry."
+            return False
         else:
             return "Successfully signed in"
        
