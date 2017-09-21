@@ -1,5 +1,5 @@
 import unittest
-from app.shopping_list import Shopping_list
+from app.models.shopping_list import Shopping_list
 
 class TddForShoppingList(unittest.TestCase):
     def setUp(self):

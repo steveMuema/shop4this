@@ -1,0 +1,26 @@
+
+#signup-container{
+    display: flex;
+    flex-flow: column wrap;
+    width: 500px;
+    height: 650px;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    justify-content: center;
+    overflow: hidden;
+    align-content: center;
+    background-color: azure;
+    position: absolute;
+    top: 80px;
+    left: 400px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.signup-heading{
+    margin-bottom: 70px;
+}
+
+.form-control-label{
+    margin-bottom: 5px;
+}
