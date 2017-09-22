@@ -1,20 +1,12 @@
 from uuid import uuid4
 class User(object):
     user_list=[]
-    def __init__(self, email, password, confirm_password, username, user_id=None):
+    def __init__(self, username, email, password,  user_id=None):
         self.user_id = str(uuid4()) if user_id is None else user_id 
         self.username = username 
         self.email = email
         self.password = password
-        self.confirm_password = confirm_password
-
-# user = User('Steve Muema', 'stevemuema@gmail.com','say123#', "say123#")
-# print('{}, {}'.format(user.user_id, user.username))
-    def compare_password(self):
-        if self.password is self.confirm_password:
-            return '{}'.format(self.password)
-        else:
-            return "The passwords do not match."
+       
 
     def registration_store(self):
         """ method to register user credentials in a list"""

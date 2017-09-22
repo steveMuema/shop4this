@@ -35,29 +35,28 @@
             </div>
             {% if error %}
             <div class="alert alert-danger" role="alert">
-                Oops!! Unable register your account. Please enter valid credentials
+                {{ error }}
             </div>
             {% endif %}
+            {% from "includes/_formhelpers.html" import render_field %}
             <form action="" method="POST">  
                     <div class="form-group">
-                        <label class="form-control-label" for="signupInputName">Full Name</label>
-                        <input type="text" class="form-control" id="signupInputName" placeholder="Enter full name...">
+                        <!-- <label class="form-control-label" for="signupInputName">Full Name</label>
+                        <input type="text" class="form-control" id="signupInputName" placeholder="Enter full name..."> -->
+                        {{render_field(form.username, class_="form-control")}}
                     </div>
                     <br/>
                     <div class="form-group">
-                      <label class="form-control-label" for="signupInputEmail">Email address</label>
-                      <input type="email" class="form-control" id="signupInputEmail" aria-describedby="emailHelp" placeholder="Enter email...">
+                        {{render_field(form.email, class_="form-control")}}
                       <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --> 
                     </div>
                     <br/>
                     <div class="form-group">
-                      <label class="form-control-label" for="signupInputPassword">Password</label>
-                      <input type="password" class="form-control" id="signupInputPassword" placeholder="Enter your password...">
+                        {{render_field(form.password, class_="form-control")}}
                     </div>
                     <br/>
                     <div class="form-group">
-                        <label class="form-control-label" for="signupConfirmPassword">Confirm Password</label>
-                        <input type="password" class="form-control" id="signupConfirmPassword" placeholder="Confirm your password...">
+                        {{render_field(form.confirm_password, class_="form-control")}}
                     </div>
                     <br/>
                     <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>

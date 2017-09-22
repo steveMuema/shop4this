@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="../static/css/signin.css"/>
-        <link href="../static/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="static/css/signin.css"/>
+        <link href="static/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <title>shop4this! - login</title>
         <style>
@@ -36,19 +36,17 @@
             <br/>
             {% if error %}
             <div class="alert alert-danger" role="alert">
-                Oops!! Login unsuccessfull. Please enter valid credentials
+                Oops!! Login unsuccessful. Please enter valid credentials
             </div>
             {% endif %}
+            {% from "includes/_formhelpers.html" import render_field %}
             <form action="" method="POST">
                     <div class="form-group">
-                      <label class="form-control-label" for="loginInputEmail">Email address</label>
-                      <input type="email" class="form-control" id="loginInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-                      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --> 
+                        {{render_field(form.email, class_="form-control")}}
                     </div>
                     <br/>
                     <div class="form-group">
-                      <label class="form-control-label" for="loginInputPassword">Password</label>
-                      <input type="password" class="form-control" id="loginInputPassword" placeholder="Password">
+                        {{render_field(form.password, class_="form-control")}}
                     </div>
                     <br/>
                     <div class="remember-me-check">
