@@ -47,7 +47,6 @@
             ],
             "version": "==6.7"
         },
-        
         "flask": {
             "hashes": [
                 "sha256:0749df235e3ff61ac108f69ac178c9770caeaccad2509cb762ce1f65570a8856",
