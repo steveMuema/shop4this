@@ -1,5 +1,5 @@
 import unittest
-from app.user import User
+from app.models.user import User
 class TddForUserClass(unittest.TestCase):
     """ Tests all implemented methods for accessing user class """
     def setUp(self):
