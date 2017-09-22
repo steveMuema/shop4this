@@ -1,9 +1,9 @@
 
-#login-container{
+#signup-container{
     display: flex;
     flex-flow: column wrap;
-    width: 500px;
-    height: 550px;
+    width: 670px;
+    height: 740px;
     border-style: solid;
     border-radius: 20px;
     border-width: 2px;
@@ -17,10 +17,14 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.login-heading{
-    margin-bottom: 70px;
+.signup-heading{
+    /* margin-bottom: 70px; */
 }
 
 .form-control-label{
     margin-bottom: 5px;
+}
+
+.alert-danger{
+    width: 450px;
 }
