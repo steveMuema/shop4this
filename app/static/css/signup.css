@@ -2,7 +2,7 @@
 #signup-container{
     display: flex;
     flex-flow: column wrap;
-    width: 500px;
+    width: 670px;
     height: 740px;
     border-style: solid;
     border-radius: 20px;
