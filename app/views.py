@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request,url_for, redirect
-from app import app
+from app.my_app import app
 from app.controller import RegisterForm, CreateShoppingItem, LoginForm, CreateShoppingItem
 from app.models.user import User
 from passlib.hash import sha256_crypt
