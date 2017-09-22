@@ -45,9 +45,9 @@ class User(object):
         auth_pswd = [ account_pswd['password'] for account_pswd in User.user_list if password is account_pswd['password'] ]
         auth_account=(auth_email, auth_pswd)
         auth_input = ([email], [password])
-        if auth_account != auth_input:
-            return False
-        else:
+        if auth_account == auth_input:
             return "Successfully signed in"
+        else:
+            return False
        
     
