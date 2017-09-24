@@ -16,7 +16,6 @@ def register():
         username = form.username.data
         email = form.email.data
         password = form.password.data
-        # confirm_password = form.confirm_password.data
         new_user = User(str(username), str(email), str(password))
         if  User.email_exists(new_user):
             error="Account exists. Sign in to the account"
@@ -37,8 +36,6 @@ def login():
         auth_pswd = [ account_pswd['password'] for account_pswd in all_users  ]
         auth_account=(auth_email, auth_pswd)     
         auth_input = ([str(email)], [str(password)])
-        print(auth_account, auth_input)
-        print(all_users)
         if auth_account != auth_input:
             error = "Login unsuccessful. Please retry "
             return render_template("signin.html",form=form, error=error)
