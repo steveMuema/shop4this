@@ -32,14 +32,18 @@ class User(object):
     
     @staticmethod
     def signin(email, password):
+        # auth_user = User.user_list
         auth_email = [account_email['email'] for account_email in User.user_list if email is account_email['email']]
-       
         auth_pswd = [ account_pswd['password'] for account_pswd in User.user_list if password is account_pswd['password'] ]
-        auth_account=(auth_email, auth_pswd)
+        auth_account=(auth_email, auth_pswd)     
         auth_input = ([email], [password])
+        print(auth_account, auth_input)
         if auth_account == auth_input:
             return "Successfully signed in"
         else:
             return False
-       
-    
+
+# user = User('me', 'set@test.com', '1234')
+# user.registration_store()    
+# new_user = User.signin('set@test.com', '1234')
+# print(new_user)

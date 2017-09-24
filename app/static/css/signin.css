@@ -2,8 +2,8 @@
 #login-container{
     display: flex;
     flex-flow: column wrap;
-    width: 500px;
-    height: 670px;
+    width: 670px;
+    height: 600px;
     border-style: solid;
     border-radius: 20px;
     border-width: 2px;

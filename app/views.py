@@ -17,34 +17,35 @@ def register():
         email = form.email.data
         password = form.password.data
         # confirm_password = form.confirm_password.data
-        new_user = User(username, email, password)
-        print(new_user.user_id, str(new_user.password), new_user.email)
-        # new_user.compare_password()
+        new_user = User(str(username), str(email), str(password))
         if  User.email_exists(new_user):
             error="Account exists. Sign in to the account"
             return render_template("signup.html", error=error)
         new_user.registration_store()
-        return redirect(url_for('login'))
+        return redirect(url_for('login'))       
     return render_template("signup.html", form= form)
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
     """ Enable user to login his her credentia;s """
+    all_users = User.user_list
     form = LoginForm(request.form)
     if request.method=='POST':
         email = form.email.data
         password = form.password.data
-        
-        auth_user = User.signin(email, password)
-        print(email, password)
-        print(auth_user)
-        if auth_user is False:
+        auth_email = [account_email['email'] for account_email in all_users ]
+        auth_pswd = [ account_pswd['password'] for account_pswd in all_users  ]
+        auth_account=(auth_email, auth_pswd)     
+        auth_input = ([str(email)], [str(password)])
+        print(auth_account, auth_input)
+        print(all_users)
+        if auth_account != auth_input:
             error = "Login unsuccessful. Please retry "
             return render_template("signin.html",form=form, error=error)
-        redirect(url_for('view_shopping_list'))
+        return redirect(url_for('view_shopping_list'))
     return render_template("signin.html", form = form)
 
-@app.route('/shopping-list/')
+@app.route('/shopping_list')
 def view_shopping_list():
     return render_template("shopping_list.html")
 
