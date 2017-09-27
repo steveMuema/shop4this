@@ -44,13 +44,13 @@ def login():
             error = "Login unsuccessful. Please retry "
             return render_template("signin.html",form=form, error=error)
                         
-        return redirect(url_for('create_list'))
+        return redirect(url_for('view_shopping_list'))
     return render_template("signin.html", form = form)
 
 @app.route('/shopping_list', methods=['GET', 'POST'])
 # @login_required
 def view_shopping_list():
-    """" User can createa and view their shopping lists """
+    """" User can create and view their shopping lists """
     form = CreateShoppingList(request.form)
     if request.method == 'POST' and form.validate():
         list_name = form.list_name.data
@@ -86,10 +86,10 @@ def create_item(list_id):
     form =  CreateShoppingItem(request.form)
     if request.method == 'POST' and form.validate():
         item_name = form.item_name.data
-        new_item = Shopping_item(str(item_name))
-        new_item.shopping_item_store()
+        new_item = Shopping_item(str(item_name), list_id)
+        # new_item.shopping_item_store()
         new_item.create_shopping_item()
-    return render_template('shopping_items.html', saved_lists = Shopping_list.saved_lists, saved_items = Shopping_item.saved_items, form=form, list_id=list_id)
+    return render_template('shopping_items.html', saved_items = Shopping_item.saved_items, form=form, list_id=list_id)
 
 @app.route('/delete_item/<list_id>/<item_id>')
 # @login_required
