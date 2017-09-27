@@ -38,31 +38,35 @@
                 {{ error }}
             </div>
             {% endif %}
-            {% from "includes/_formhelpers.html" import render_field %}
+            {% from "includes/_formhelpers.html" import render_field %} 
+
             <form action="" method="POST">  
                     <div class="form-group">
-                        <!-- <label class="form-control-label" for="signupInputName">Full Name</label>
-                        <input type="text" class="form-control" id="signupInputName" placeholder="Enter full name..."> -->
+                       
                         {{render_field(form.username, class_="form-control")}}
                     </div>
                     <br/>
                     <div class="form-group">
-                        {{render_field(form.email, class_="form-control")}}
-                      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --> 
+                         
+                       {{render_field(form.email, class_="form-control")}} 
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>  -->
                     </div>
                     <br/>
                     <div class="form-group">
+                         
                         {{render_field(form.password, class_="form-control")}}
                     </div>
                     <br/>
                     <div class="form-group">
-                        {{render_field(form.confirm_password, class_="form-control")}}
+                      
+                         {{render_field(form.confirm_password, class_="form-control")}}
                     </div>
                     <br/>
                     <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
-                  </form>
-                  <p>Already have an account? <a href="/login"> Sign In  </a> </p>
-                  <br/>
+            </form>
+            <p>Already have an account? <a href="/login"> Sign In  </a> </p>
+            <br/> 
+                
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/javascript">

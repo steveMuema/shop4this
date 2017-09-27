@@ -9,5 +9,7 @@ flask = "*"
 flask-login = "*"
 wtforms = "*"
 passlib = "*"
+flask-bootstrap = "*"
+pylint-flask = "*"
 
 
