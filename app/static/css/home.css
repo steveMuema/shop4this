@@ -22,6 +22,12 @@ body{
     background-image: url("background.jpg");
 }
 
+.create-list-container{
+    display: flex;
+    width: 500px;
+    background-color: beige;
+}
+
 .shopping-list-container{
     display: flex;
     flex-flow: column wrap;

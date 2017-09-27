@@ -42,8 +42,3 @@ class User(object):
             return "Successfully signed in"
         else:
             return False
-
-# user = User('me', 'set@test.com', '1234')
-# user.registration_store()    
-# new_user = User.signin('set@test.com', '1234')
-# print(new_user)

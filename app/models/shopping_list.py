@@ -22,9 +22,10 @@ class Shopping_list(object):
         """ returns a list of all saved shopping lists"""
         return self.saved_lists
 
-    def remove_list(self, list_id):
+    @staticmethod
+    def remove_list(list_id):
         """ method to remove specific shopping list"""
-        selected_list = [shop_list for shop_list in self.saved_lists if list_id == shop_list['list_id']]
+        selected_list = [shop_list for shop_list in Shopping_list.saved_lists if list_id == shop_list['list_id']]
         # print(selected_list)
         Shopping_list.saved_lists.remove(selected_list[0])
         return True

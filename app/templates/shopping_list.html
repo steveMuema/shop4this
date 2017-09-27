@@ -13,12 +13,19 @@
     <body>
         <nav class="navbar navbar-dark bg-primary">
                 <!-- Navbar content -->
-            
+         {% from "includes/_formhelpers.html" import render_field %} 
+                
             <span class="navbar-text">shop4this!</span>
-            <form class="form-inline">
-                <button class="btn" type="button">Create list</button>
-            </form>
-        </nav>                 
+           
+        </nav>     
+        <div class = "create-list-container">
+            <form class="form-inline" method="POST" action="">
+                    {{render_field(form.list_name, class_="form-control")}}                     
+                    <button class="btn btn-info my-2 my-sm-0"  type="submit">ADD LIST</button>
+            </form>    
+        </div>
+        
+       
         <div class="shopping-list-container">
                 <!-- Shopping list content  -->
             <div id="shopping-list-header">
@@ -28,28 +35,31 @@
                 <!-- materialize.css collapsible collection of shopping lists-->            
             
             <ul class="collapsible" data-collapsible="accordion">
-                <li>
+                <li>{% for shopping_list in saved_lists %}
                   <div class="collapsible-header">
                     <i class="material-icons">add_shopping_cart</i>
-                    First Shopping List
+                    {{ shopping_list['list_name'] }}
                     <span class="new badge">3</span>
-                    <a  href="#" >
+                    <a  href="" >
                         <i class="small material-icons">edit</i>
                     </a>
-                    <a  href="#" >
+                    <a  href='/delete_list/{{shopping_list['list_id']}}'}} >
                         <i class="small material-icons">delete</i>
                     </a>
-                    <a  href="#" >
+                    <a  href='/create_item/{{shopping_list['list_id']}}' >
                         <i class="small material-icons">share</i>
                     </a>
                   </div>
-                  <div class="collapsible-body"><p>Milk, bacon, tuna, cheese, cooking oil,...</p></div>
+                  {% endfor %}
                 </li>
             </ul>
-                
         </div>
+        
         <!-- Compiled and minified JavaScript -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" type="text/css"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" ></script>
     </body>
-</html>
+    
+    </html>

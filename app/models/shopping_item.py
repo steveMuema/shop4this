@@ -23,9 +23,10 @@ class Shopping_item(object):
         """ returns a list of all saved shopping items"""
         return self.saved_items
 
-    def remove_item(self, item_id):
+    @staticmethod
+    def remove_item(item_id):
         """ method to remove specific shopping item"""
-        selected_item = [shop_item for shop_item in self.saved_items if item_id == shop_item['item_id']]
+        selected_item = [shop_item for shop_item in Shopping_item.saved_items if item_id == shop_item['item_id']]
         Shopping_item.saved_items.remove(selected_item[0])
         return True
 
