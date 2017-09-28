@@ -25,7 +25,26 @@
             </form>    
         </div>
         
-       
+       <div id = "editlist" class = "modal fade" role="dialog" >
+            <div class= "modal-dialog">
+                <div class= "modal-content">
+                    <div class="modal-header">
+                        <button type="button" class= "close" data-dismiss = "modal">&times;</button>
+                        <h4 class = "modal-title">Rename your list</h4>
+                    </div>
+                    <div class = "modal-body">
+                        <form class="form-inline" method="POST" action="">
+                            {{render_field(form.list_name, class_="form-control")}}                     
+                            <button class="btn btn-info my-2 my-sm-0"  type="submit">RENAME LIST</button>
+                    </form>
+                    </div>
+                    <div class= "modal-footer">
+                        <button class="btn btn-info my-2 my-sm-0"  type="submit">RENAME LIST</button>
+                        
+                    </div>
+                </div>
+            </div>
+       </div>
         <div class="shopping-list-container">
                 <!-- Shopping list content  -->
             <div id="shopping-list-header">
@@ -39,7 +58,7 @@
                   <div class="collapsible-header">
                     <i class="material-icons">add_shopping_cart</i>
                     {{ shopping_list['list_name'] }}
-                    <a  href="" >
+                    <a  href="#" class="button" data-toggle="modal" data-target="#editlist" >
                         <i class="small material-icons">edit</i>
                     </a>
                     <a  href='/delete_list/{{shopping_list['list_id']}}'}} >
