@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request,url_for, redirect
+from flask import Flask, render_template, request,url_for, redirect, session, flash
 from app.my_app import app
+from functools import wraps
 from app.controller import RegisterForm, CreateShoppingList, LoginForm, CreateShoppingItem
 from app.models.user import User
 from app.models.shopping_list import Shopping_list
@@ -7,6 +8,17 @@ from app.models.shopping_item import Shopping_item
 from flask_login import login_user, login_required
 
 app.config['SECRET_KEY']  = 'itsmysecret'
+
+# Check if user logged in
+def is_logged_in(param):
+    @wraps(param)
+    def wrap(*args, **kwargs):
+        if  'logged_in' in session:
+            return param(*args, **kwargs)
+        else:
+            flash('Unauthorized, Please login', 'danger')
+            return redirect(url_for('login'))
+    return wrap
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/register', methods=['GET', 'POST'])
@@ -23,12 +35,13 @@ def register():
             error="Account exists. Sign in to the account"
             return render_template("signup.html", error=error)
         new_user.registration_store()
+        session['logged_in'] = True
+        session['email'] = email
         print(username, email, password)
         return redirect(url_for('login'))       
     return render_template("signup.html", form= form)
 
 @app.route('/login', methods = ['GET', 'POST'])
-# @login_required
 def login():
     """ Enable user to login his her credentia;s """
     all_users = User.user_list
@@ -49,7 +62,7 @@ def login():
     return render_template("signin.html", form = form)
 
 @app.route('/shopping_list', methods=['GET', 'POST'])
-# @login_required
+@is_logged_in
 def view_shopping_list():
     """" User can create and view their shopping lists """
     form = CreateShoppingList(request.form)
@@ -62,14 +75,14 @@ def view_shopping_list():
 
 
 @app.route('/delete_list/<list_id>')
-# @login_required
+@is_logged_in
 def delete_list(list_id):
     """ Link to do a delete method call"""
     Shopping_list.remove_list(list_id)
     return redirect(url_for("view_shopping_list"))
 
 @app.route('/update_list/<list_id>', methods=['GET', 'POST'])
-# @login_required
+@is_logged_in
 def update_list(list_id):
     """ Used to update a list""" 
     form = CreateShoppingList(request.form)
@@ -81,7 +94,7 @@ def update_list(list_id):
 
 
 @app.route('/create_item/<list_id>', methods = ['GET', 'POST'])
-# @login_required
+@is_logged_in
 def create_item(list_id):
     """ User can create and view their shopping list items"""
     form =  CreateShoppingItem(request.form)
@@ -94,10 +107,9 @@ def create_item(list_id):
     return render_template('shopping_items.html', saved_items = Shopping_item.saved_items, form=form, list_id=list_id)
 
 @app.route('/delete_item/<list_id>/<item_id>')
-# @login_required
+@is_logged_in
 def delete_item(list_id, item_id):
     """ Link to do a delete method call"""
-    # if request.method=='POST':
     Shopping_item.remove_item(item_id)  
     return redirect("/create_item/{}".format(list_id))
     # return render_template('shopping_items.html',  saved_items = Shopping_item.saved_items, list_id=list_id)

@@ -26,11 +26,11 @@ class LoginForm(Form):
 
 class CreateShoppingList(Form):
     """ handles new buckets created"""    
-    list_name = StringField('List Name', validators=[InputRequired(), DataRequired(), Length(min=4, max=140)])
+    list_name = StringField('Create list', validators=[InputRequired(), DataRequired(), Length(min=4, max=140)])
 
 class CreateShoppingItem(Form):
     """ used to create new activity"""
-    item_name = StringField('item_name', validators=[InputRequired(), Length(min=4, max=140)])
+    item_name = StringField('Create item', validators=[InputRequired(), Length(min=4, max=140)])
    
 class EditShoppingList(Form):
     """  edits available buckets """
