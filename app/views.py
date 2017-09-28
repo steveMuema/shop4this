@@ -62,7 +62,7 @@ def login():
     return render_template("signin.html", form = form)
 
 @app.route('/shopping_list', methods=['GET', 'POST'])
-@is_logged_in
+# @is_logged_in
 def view_shopping_list():
     """" User can create and view their shopping lists """
     form = CreateShoppingList(request.form)
@@ -114,3 +114,9 @@ def delete_item(list_id, item_id):
     return redirect("/create_item/{}".format(list_id))
     # return render_template('shopping_items.html',  saved_items = Shopping_item.saved_items, list_id=list_id)
 
+@app.route('/logout')
+@is_logged_in
+def logout():
+    session.clear()
+    flash('You are now logged out', 'success')
+    return redirect(url_for('login'))
