@@ -1,8 +1,23 @@
-
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    align-content: flex-end;
+}
+.navbar-text{
+    align-self: center;
+    font-family: "fantasy";
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 3.5px;
+    text-shadow: 2px, 2px, 2px, black;
+    color: white;
+}
 #login-container{
     display: flex;
     flex-flow: column wrap;
-    width: 670px;
+    width: 500px;
     height: 600px;
     border-style: solid;
     border-radius: 20px;

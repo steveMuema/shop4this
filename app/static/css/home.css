@@ -25,7 +25,13 @@ body{
 .create-list-container{
     display: flex;
     width: 500px;
-    background-color: beige;
+    height:150px;
+    background-color: white;
+    margin-left:400px;
+    border-style:solid;
+    border-width:3px;
+    align-content: center;
+    justify-content: center;
 }
 
 .shopping-list-container{

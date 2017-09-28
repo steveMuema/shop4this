@@ -19,5 +19,9 @@ class TddForUserClass(unittest.TestCase):
         login_user = User.signin(self.user.email, self.user.password)
         self.assertEquals("Successfully signed in", login_user)
 
+    def test_unsuccesssful_signin(self):
+        login_user=User.signin("fake@test.com", "1234")
+        self.assertEqual(False, login_user)
+
 if __name__ == "__main__":
     unittest.main()

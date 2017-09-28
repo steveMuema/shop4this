@@ -23,7 +23,7 @@ def register():
             error="Account exists. Sign in to the account"
             return render_template("signup.html", error=error)
         new_user.registration_store()
-        # login_user(new_user)
+        print(username, email, password)
         return redirect(url_for('login'))       
     return render_template("signup.html", form= form)
 
@@ -40,6 +40,7 @@ def login():
         auth_pswd = [ account_pswd['password'] for account_pswd in all_users  ]
         auth_account=(auth_email, auth_pswd)     
         auth_input = ([str(email)], [str(password)])
+        print(auth_input)
         if auth_account != auth_input:
             error = "Login unsuccessful. Please retry "
             return render_template("signin.html",form=form, error=error)
@@ -89,6 +90,7 @@ def create_item(list_id):
         new_item = Shopping_item(str(item_name), list_id)
         # new_item.shopping_item_store()
         new_item.create_shopping_item()
+        print(Shopping_item.saved_items)
     return render_template('shopping_items.html', saved_items = Shopping_item.saved_items, form=form, list_id=list_id)
 
 @app.route('/delete_item/<list_id>/<item_id>')

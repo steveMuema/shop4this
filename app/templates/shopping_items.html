@@ -15,18 +15,20 @@
                     {{render_field(form.item_name, class_="form-control")}}                                         
                 <button class="btn btn-info my-2 my-sm-0"  type="submit">ADD ITEM</button>
             </form>
+            <a href="/shopping_list" class="btn btn-primary btn-lg active" role="button">Your Lists</a>            
             </div>
+            
         </nav> 
         <div class="shopping-item-container">          
                 <!-- bootstrap.css dark collection of shopping list items-->            
             <div class="list-group">
-                {% for shopping_list in saved_lists%}
-                {% for shopping_item in saved_items%}
+                {% for shopping_item in saved_items %}
+                {% if shopping_item['list_id'] == list_id %}
                 <div class="list-group-item list-group-item-dark">
-                        {{ shopping_item['item_name'] }}                        
-                    <a class="btn btn-dark" href='/delete_item/{{shopping_list['list_id']}}/{{shopping_item['item_id']}}' role="button">Delete</a>
+                        {{ shopping_item['item_name'] }}   
+                        <a class="btn btn-dark" href='/delete_item/{{list_id}}/{{shopping_item['item_id']}}' role="button">Delete</a>
                 </div>
-                {% endfor %}
+                {% endif %}
                 {% endfor %}
             </div>
         </div>

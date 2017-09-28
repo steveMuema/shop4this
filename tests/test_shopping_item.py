@@ -3,7 +3,7 @@ from app.models.shopping_item import Shopping_item
 
 class TddForShoppingItem(unittest.TestCase):
     def setUp(self):
-        self.shopping_item = Shopping_item("My Shopping item")
+        self.shopping_item = Shopping_item("My Shopping item", "123")
 
     def test_create_shopping_item(self):
         """ tests the shopping items if it is appended to the saved_items"""

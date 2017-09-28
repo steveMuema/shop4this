@@ -16,7 +16,7 @@
          {% from "includes/_formhelpers.html" import render_field %} 
                 
             <span class="navbar-text">shop4this!</span>
-           
+            <a href="/logout" class="btn btn-primary btn-lg active" role="button">Logout</a>
         </nav>     
         <div class = "create-list-container">
             <form class="form-inline" method="POST" action="">
@@ -39,7 +39,6 @@
                   <div class="collapsible-header">
                     <i class="material-icons">add_shopping_cart</i>
                     {{ shopping_list['list_name'] }}
-                    <span class="new badge">3</span>
                     <a  href="" >
                         <i class="small material-icons">edit</i>
                     </a>
@@ -47,7 +46,7 @@
                         <i class="small material-icons">delete</i>
                     </a>
                     <a  href='/create_item/{{shopping_list['list_id']}}' >
-                        <i class="small material-icons">share</i>
+                        <i class="small material-icons">add_box</i>
                     </a>
                   </div>
                   {% endfor %}

@@ -6,7 +6,7 @@
         <!-- <link href="../static/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet"/> -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" type="text/css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
         <link rel="stylesheet" type="text/css" href="../static/css/signin.css"/>
-        <title>shop4this! - login</title>
+        <title>shop4this!-login</title>
         <style>
             body{
                 background-color: #2BB0B3;
@@ -26,9 +26,16 @@
                 margin-top: 20px;
                 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             }
+            span{
+                color:white;
+            }
         </style>
     </head>
     <body>
+            <nav class="navbar navbar-dark bg-primary">
+                    <!-- Navbar content -->
+                <span class="navbar-text">shop4this!</span>
+            </nav>
         <div id="login-container">
             <div class="login-heading">
                 <h1> Sign In </h1>
@@ -42,11 +49,11 @@
             {% endif %}
             {% from "includes/_formhelpers.html" import render_field %}
             <form action="" method="POST">
-                    <div class="form-group">
+                    <div class="col-sm-12">
                         {{render_field(form.email, class_="form-control")}}
                     </div>
                     <br/>
-                    <div class="form-group">
+                    <div class="col-sm-12">
                         {{render_field(form.password, class_="form-control")}}
                     </div>
                     <br/>
@@ -56,7 +63,9 @@
                         Remember me.
                       </label>
                     </div>
-                    <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+                    </div>
                   </form>
                   <p>Don't have an account? <a href="/register"> Sign Up  </a> </p>
         </div>
