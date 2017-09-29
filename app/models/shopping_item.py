@@ -1,6 +1,7 @@
 from uuid import uuid4
 from app.models.shopping_list import Shopping_list
 class Shopping_item(object):
+    """ This class allows shopping items to be created, viewed, deleted and updated. """
     saved_items=[]
     def __init__(self, item_name, list_id, item_id=None):
         """ Contains shopping item attributes required for Shopping item class """
@@ -8,12 +9,7 @@ class Shopping_item(object):
         self.item_name = item_name
         self.list_id = list_id
 
-    # def shopping_item_store(self):
-    #     """ saves the shopping items in dict and returns result"""
-    #     new_shopping_item = {'item_id' : self.item_id,
-    #                          'item_name': self.item_name,
-    #                          'list_id': self.list_id}
-    #     return new_shopping_item
+
 
     def create_shopping_item(self):
         """ Takes values stored as dictionary and appends to saved_items """
@@ -40,6 +36,3 @@ class Shopping_item(object):
         self.item_id = item_id
         return self
 
-# new_item = Shopping_item("my item", "1234")
-# new_item.create_shopping_item()
-# print(new_item.create_shopping_item())
