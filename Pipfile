@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+[packages]
+
+requests = "*"
+gunicorn = "*"
+flask = "*"
+flask-login = "*"
+wtforms = "*"
+passlib = "*"
+flask-bootstrap = "*"
+pylint-flask = "*"
+
+

@@ -9,18 +9,11 @@
                 <!-- material design icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>shop4this! - shopping-list</title>
-        <style>
-            /* span.navbar-text{
-                align-self: center;
-                border-left: 300px;
-
-            } */
-        </style>
     </head>
     <body>
         <nav class="navbar navbar-dark bg-primary">
                 <!-- Navbar content -->
-            <div></div>
+            
             <span class="navbar-text">shop4this!</span>
             <form class="form-inline">
                 <button class="btn" type="button">Create list</button>
@@ -32,23 +25,31 @@
                 <h3>Your lists</h3>
             </div>
             <hr/>
-                <!-- materialize.css collection of shopping lists-->            
-            <ul class="collection">
-                <li class="collection-item">
-                        <div>
-                            My Shopping List
-                            <a href="#!" class="secondary-content">
-                                <i class="material-icons">more_vert</i>
-                            </a>
-                        </div>
+                <!-- materialize.css collapsible collection of shopping lists-->            
+            
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header">
+                    <i class="material-icons">add_shopping_cart</i>
+                    First Shopping List
+                    <span class="new badge">3</span>
+                    <a  href="#" >
+                        <i class="small material-icons">edit</i>
+                    </a>
+                    <a  href="#" >
+                        <i class="small material-icons">delete</i>
+                    </a>
+                    <a  href="#" >
+                        <i class="small material-icons">share</i>
+                    </a>
+                  </div>
+                  <div class="collapsible-body"><p>Milk, bacon, tuna, cheese, cooking oil,...</p></div>
                 </li>
-                <li class="collection-item "><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-                <li class="collection-item "><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-                <li class="collection-item "><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
             </ul>
                 
         </div>
         <!-- Compiled and minified JavaScript -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     </body>
 </html>

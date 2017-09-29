@@ -14,15 +14,21 @@
     text-shadow: 2px, 2px, 2px, black;
     color: white;
 }
-.btn{
-    background-color: black;
-    align-self: center;
-}
 body{
     background-image: url("background.jpg");
 }
-
-.shopping-list-container{
+.create-item-container{
+    display: flex;
+    width: 500px;
+    height:150px;
+    background-color: white;
+    margin-left:400px;
+    border-style:solid;
+    border-width:3px;
+    align-content: center;
+    justify-content: center;
+}
+.shopping-item-container{
     display: flex;
     flex-flow: column wrap;
     width: 500px;
@@ -37,9 +43,6 @@ body{
     position: absolute;
     left: 400px;
     /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-}
-#shopping-list-header{
-    align-self: center;
 }
 .collapsible{
     width:450px;

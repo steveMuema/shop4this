@@ -22,6 +22,18 @@ body{
     background-image: url("background.jpg");
 }
 
+.create-list-container{
+    display: flex;
+    width: 500px;
+    height:150px;
+    background-color: white;
+    margin-left:400px;
+    border-style:solid;
+    border-width:3px;
+    align-content: center;
+    justify-content: center;
+}
+
 .shopping-list-container{
     display: flex;
     flex-flow: column wrap;
