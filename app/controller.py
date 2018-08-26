@@ -34,8 +34,8 @@ class CreateShoppingItem(Form):
    
 class EditShoppingList(Form):
     """  edits available buckets """
-    list_name = StringField('list_name', validators=[InputRequired(), Length(min=4, max=140)])
+    list_name = StringField('List name', validators=[InputRequired(), Length(min=4, max=140)])
 
 class EditShoppingItem(Form):
     """ edits available activity"""
-    item_name = StringField('list_name', validators=[InputRequired(), Length(min=4, max=140)])
+    item_name = StringField('Item name', validators=[InputRequired(), Length(min=4, max=140)])

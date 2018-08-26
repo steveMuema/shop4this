@@ -32,7 +32,8 @@ class Shopping_item(object):
 
     def update_item(self, item_name, item_id):
         """ method for updating the Shopping items """
-        self.item_name = item_name
-        self.item_id = item_id
+        for item_id in saved_items:
+            self.item_name = item_name
+            self.item_id = item_id
         return self
 

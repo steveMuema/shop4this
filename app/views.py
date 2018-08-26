@@ -87,11 +87,11 @@ def update_list(list_id):
     """ Used to update a list""" 
     form = EditShoppingList(request.form)
     if request.method=='POST' and form.validate():
-        list_name = form.item_name.data
+        list_name = form.list_name.data
         for shopping_id in Shopping_list.saved_lists:
             if shopping_id['list_id'] == list_id:
                 shopping_id['list_name'] = list_name             
-        return redirect(url_for('create_item'))
+        return redirect(url_for('view_shopping_list'))
     return render_template('edit_shopping_list.html', saved_items= Shopping_list.saved_lists, form=form)
 
 
