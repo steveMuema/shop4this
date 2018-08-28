@@ -39,3 +39,8 @@ class EditShoppingList(Form):
 class EditShoppingItem(Form):
     """ edits available activity"""
     item_name = StringField('Item name', validators=[InputRequired(), Length(min=4, max=140)])
+
+class UpdateProfile(Form):
+    """ updates the profile to allow one to add the paybill business no. """
+    business_no = StringField("Paybill Business Number", validators=[InputRequired(), Length(min=6, max=15)]) 
+    phone_no = StringField("Phone Number", validators=[InputRequired(), Length(min=10, max=14)])

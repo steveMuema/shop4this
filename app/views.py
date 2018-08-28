@@ -1,7 +1,8 @@
+import json
 from flask import Flask, render_template, request,url_for, redirect, session, flash
 from app.my_app import app
 from functools import wraps
-from app.controller import RegisterForm, CreateShoppingList, LoginForm, CreateShoppingItem, EditShoppingList, EditShoppingItem
+from app.controller import RegisterForm, CreateShoppingList, LoginForm, CreateShoppingItem, EditShoppingList, EditShoppingItem, UpdateProfile
 from app.models.user import User
 from app.models.shopping_list import Shopping_list
 from app.models.shopping_item import Shopping_item
@@ -9,6 +10,10 @@ from flask_login import login_user, login_required
 
 app.config['SECRET_KEY']  = 'itsmysecret'
 
+def read_json_dumps():
+    with open("user_data_dumps.json", "r") as readfile:
+        users_data = json.load(readfile)
+        return users_data
 # Check if user logged in
 def is_logged_in(param):
     @wraps(param)
@@ -29,7 +34,6 @@ def register():
         username = form.username.data
         email = form.email.data
         password = form.password.data
-        confirm_password = form.password.data
         new_user = User(str(username), str(email), str(password))
         if  User.email_exists(new_user):
             error="Account exists. Sign in to the account"
@@ -37,41 +41,41 @@ def register():
         new_user.registration_store()
         session['logged_in'] = True
         session['email'] = email
-        print(username, email, password)
         return redirect(url_for('login'))       
     return render_template("signup.html", form= form)
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
-    """ Enable user to login his her credentia;s """
-    all_users = User.user_list
+    """ Enable user to login his her credentials """
+    all_users = read_json_dumps()
+    session['logged_in'] = True
     form = LoginForm(request.form)
     if request.method=='POST':
         email = form.email.data
         password = form.password.data
-        auth_email = [account_email['email'] for account_email in all_users ]
-        auth_pswd = [ account_pswd['password'] for account_pswd in all_users  ]
+        auth_email = all_users['email']
+        auth_pswd = all_users['password']
         auth_account=(auth_email, auth_pswd)     
-        auth_input = ([str(email)], [str(password)])
-        print(auth_input)
+        auth_input = (str(email), str(password))
         if auth_account != auth_input:
             error = "Login unsuccessful. Please retry "
             return render_template("signin.html",form=form, error=error)
-                        
-        return redirect(url_for('view_shopping_list'))
+        return redirect(url_for('update_user', user_id = all_users['user_id']))
     return render_template("signin.html", form = form)
 
-@app.route('/shopping_list', methods=['GET', 'POST'])
+@app.route('/profile/<user_id>', methods=['GET', 'POST'])
 @is_logged_in
-def view_shopping_list():
+def update_user(user_id):
     """" User can create and view their shopping lists """
-    form = CreateShoppingList(request.form)
+    user_data = read_json_dumps() 
+    form = UpdateProfile(request.form)
     if request.method == 'POST' and form.validate():
-        list_name = form.list_name.data
-        new_list = Shopping_list(list_name)
-        new_list.shopping_list_store()
-        new_list.create_shopping_list()
-    return render_template("shopping_list.html", saved_lists= Shopping_list.saved_lists, form=form)
+        business_no = form.business_no.data
+        phone_no = form.phone_no.data
+        if user_data["user_id"] == user_id:
+            user_data["business_no" ] = business_no
+            user_data["phone_no" ] = phone_no
+    return render_template("profile.html", form=form)
 
 
 @app.route('/delete_list/<list_id>')

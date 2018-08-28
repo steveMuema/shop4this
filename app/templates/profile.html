@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- <link rel="stylesheet" type="text/css" href="../static/css/signin.css"/> -->
+        <!-- <link href="../static/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet"/> -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" type="text/css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
+        <link rel="stylesheet" type="text/css" href="../static/css/profile.css"/>
+        <title>shop4this!-login</title>
+        <style>
+            body{
+                background-color: #2BB0B3;
+            }
+            h1{
+                color: #616060;
+                text-align: center;
+                text-transform: capitalize;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }
+            h5{
+                color: gray;
+                text-align: center;
+                font-family: sans-serif;
+            }
+            p{
+                margin-top: 20px;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }
+            span{
+                color:white;
+            }
+        </style>
+    </head>
+    <body>
+            <nav class="navbar navbar-dark bg-primary">
+                    <!-- Navbar content -->
+                <span class="navbar-text">shop4this!</span>
+            </nav>
+            <div id="update-profile-container">  
+                {% from "includes/_formhelpers.html" import render_field %} 
+                    <form action="" method="POST">
+                    <div class="col-sm-12">
+                        {{render_field(form.business_no, class_="form-control")}}
+                    </div>
+                    <br/>
+                    <div class="col-sm-12">
+                        {{render_field(form.phone_no, class_="form-control")}}
+                    </div>
+                    <br/>
+            </div>
+    </body>
