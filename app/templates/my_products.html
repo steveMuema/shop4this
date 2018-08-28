@@ -15,13 +15,13 @@
         <nav class="navbar navbar-dark bg-primary">
                 <!-- Navbar content -->
          {% from "includes/_formhelpers.html" import render_field %} 
-                
             <span class="navbar-text">shop4this!</span>
             <a href="/logout" class="btn btn-primary btn-lg active" role="button">Logout</a>
         </nav>     
         <div class = "create-list-container">
-            <form class="form-inline" method="POST" action="">
-                    {{render_field(form.list_name, class_="form-control")}}                     
+            <form class="form-inline" method="POST" action=""> 
+                    {{render_field(form.product_name, class_="form-control")}}                     
+                    {{render_field(form.product_price, class_="form-control")}}                     
                     <button class="btn btn-info my-2 my-sm-0"  type="submit">ADD LIST</button>
             </form>    
         </div>

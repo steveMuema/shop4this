@@ -35,6 +35,7 @@
             <nav class="navbar navbar-dark bg-primary">
                     <!-- Navbar content -->
                 <span class="navbar-text">shop4this!</span>
+                <a href="/logout" class="btn btn-primary btn-lg active" role="button">Logout</a>
             </nav>
             <div id="update-profile-container">  
                 {% from "includes/_formhelpers.html" import render_field %} 
@@ -47,5 +48,8 @@
                         {{render_field(form.phone_no, class_="form-control")}}
                     </div>
                     <br/>
+                    <div class = "col-sm-12">
+                            <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+                        </div>
             </div>
     </body>

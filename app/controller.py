@@ -24,21 +24,10 @@ class LoginForm(Form):
     email =  StringField('email', validators=[InputRequired(), Length(min=4, max=25)])
     password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=25)])
 
-class CreateShoppingList(Form):
-    """ handles new buckets created"""    
-    list_name = StringField('Create list', validators=[InputRequired(), DataRequired(), Length(min=4, max=140)])
-
-class CreateShoppingItem(Form):
+class CreateProductItem(Form):
     """ used to create new activity"""
-    item_name = StringField('Create item', validators=[InputRequired(), Length(min=4, max=140)])
-   
-class EditShoppingList(Form):
-    """  edits available buckets """
-    list_name = StringField('List name', validators=[InputRequired(), Length(min=4, max=140)])
-
-class EditShoppingItem(Form):
-    """ edits available activity"""
-    item_name = StringField('Item name', validators=[InputRequired(), Length(min=4, max=140)])
+    product_name = StringField('Product Name', validators=[InputRequired(), Length(min=4, max=140)])
+    product_price = StringField('Price of the product', validators=[InputRequired(), Length(min=4, max=140)])
 
 class UpdateProfile(Form):
     """ updates the profile to allow one to add the paybill business no. """
