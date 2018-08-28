@@ -1,4 +1,5 @@
 from uuid import uuid4
+import json
 class User(object):
     user_list=[]
     def __init__(self, username, email, password,  user_id=None):
@@ -12,13 +13,12 @@ class User(object):
         """ method to register user credentials in a list"""
         user_validation = self.email_exists()
         if user_validation is False:
-            # return "Account exists. Sign in to the account", self.email 
             user_credentials = {'user_id' : self.user_id,
                                 'username': self.username,
                                 'email': self.email,
                                 'password': self.password,}
-            self.user_list.append(user_credentials)
-            return user_credentials   
+            with open("user_data_dumps.json", "w") as write_file:
+                 return json.dump(user_credentials, write_file)
         else:
             return user_validation
     
